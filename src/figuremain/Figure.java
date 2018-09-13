@@ -2,6 +2,6 @@ package figuremain;
 
 public abstract class Figure {
     
-    public abstract double area();
+    abstract public double area();
     public abstract double circumference();
 }

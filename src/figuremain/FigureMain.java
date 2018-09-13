@@ -21,7 +21,7 @@ public class FigureMain {
             calculate(figure);
             
             System.out.println("Do you want to do another calculation? (1 for yes)");
-        } while (sc.nextInt() == 1);
+        } while (readNumber() == 1);
     }
     
     /** Lets user choose what type of figure to be created
@@ -30,7 +30,7 @@ public class FigureMain {
      */
     public static Figure chooseFigure(){
         System.out.println("Choose figure:\n1:Circle\n2:Triangle\n3:Rectangle");
-        int choice = sc.nextInt();
+        int choice = readNumber();
         Figure figure = null;
         double base, height;
         switch(choice){
@@ -65,7 +65,7 @@ public class FigureMain {
      */
     public static void calculate(Figure figure){
         System.out.println("Calculate:\n1:Area\n2:Circumference\n3:Both");
-            int choice = sc.nextInt();
+            int choice = readNumber();
             switch(choice){
                 case 1:
                     System.out.println("Area:" + figure.area());
@@ -81,5 +81,22 @@ public class FigureMain {
                     System.out.println("What is wrong with you??");
 
             }
+    }
+   
+    /** Reads integer from user, returns -1 if no valid value was read
+     *
+     * @return read number
+     */
+    public static int readNumber(){
+        
+        int num;
+        try {
+            num = sc.nextInt();
+            sc.nextLine();
+        } catch (Exception e) {
+            sc.nextLine();
+            num = -1;
+        }
+        return num;
     }
 }
